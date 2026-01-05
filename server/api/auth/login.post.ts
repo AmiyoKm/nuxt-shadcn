@@ -1,10 +1,10 @@
+import { compare } from "bcrypt-ts";
+import { eq } from "drizzle-orm";
+import jwt from "jsonwebtoken";
+import { usersTable } from "~~/server/db/schema";
 import db from "~~/server/lib/db";
 import { loginSchema } from "~~/shared/types/auth";
 import { Response } from "~~/shared/types/response";
-import { usersTable } from "~~/server/db/schema";
-import { eq } from "drizzle-orm";
-import { compare } from "bcrypt-ts";
-import jwt from "jsonwebtoken";
 
 export default defineEventHandler(async (event) => {
   const body = await readValidatedBody(event, (body) =>
@@ -34,6 +34,12 @@ export default defineEventHandler(async (event) => {
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET!, {
     expiresIn: "12h",
+  });
+
+  setCookie(event, "auth_token", token, {
+    httpOnly: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 12,
   });
 
   return {

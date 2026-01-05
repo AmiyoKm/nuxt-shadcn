@@ -33,5 +33,6 @@ export default defineEventHandler(async (event) => {
 
     return {
         data: newTodo,
+        message: "Todo created successfully",
     };
 });
