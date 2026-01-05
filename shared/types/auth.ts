@@ -14,11 +14,11 @@ export const registerSchema = z
     path: ["passwordConfirmation"],
   });
 
-export type RegisterSchema = z.infer<typeof registerSchema>;
+export type RegisterSchemaType = z.infer<typeof registerSchema>;
 
 export const loginSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 });
 
-export type LoginSchema = z.infer<typeof loginSchema>;
+export type LoginSchemaType = z.infer<typeof loginSchema>;

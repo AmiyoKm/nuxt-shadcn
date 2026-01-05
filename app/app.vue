@@ -1,10 +1,14 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import "vue-sonner/style.css";
+import { Toaster } from "@/components/ui/sonner";
+</script>
 
 <template>
-    <div>
-        <NuxtLayout>
-            <NuxtRouteAnnouncer />
-            <NuxtPage />
-        </NuxtLayout>
-    </div>
+  <div>
+    <NuxtLayout>
+      <NuxtRouteAnnouncer />
+      <NuxtPage />
+      <Toaster />
+    </NuxtLayout>
+  </div>
 </template>
