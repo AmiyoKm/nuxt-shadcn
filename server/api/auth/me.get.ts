@@ -2,9 +2,10 @@ import { eq } from "drizzle-orm";
 
 import { usersTable } from "~~/server/db/schema";
 import db from "~~/server/lib/db";
-import { Response } from "~~/shared/types/response";
+import type { Response } from "~~/shared/types/response";
 
-import jwt, { JwtPayload } from "jsonwebtoken";
+import type { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export default defineEventHandler(async (event) => {
     const token = getCookie(event, "auth_token");
@@ -40,7 +41,8 @@ export default defineEventHandler(async (event) => {
             data: user,
             message: "User fetched successfully",
         } satisfies Response<typeof user>;
-    } catch (error) {
+    } catch (error: unknown) {
+        console.error("Failed to verify token:", error);
         throw createError({
             statusCode: 401,
             statusMessage: "Unauthorized",

@@ -1,20 +1,4 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import {
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
 import { toast } from "vue-sonner";
@@ -66,7 +50,7 @@ const onSubmit = form.handleSubmit(async (values) => {
             </CardDescription>
         </CardHeader>
         <CardContent>
-            <form @submit.prevent="onSubmit" class="space-y-4">
+            <form class="space-y-4" @submit.prevent="onSubmit">
                 <FormField v-slot="{ componentField }" name="email">
                     <FormItem>
                         <FormLabel>Email</FormLabel>

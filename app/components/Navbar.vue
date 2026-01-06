@@ -21,20 +21,20 @@ const { user, logout } = useUser();
             </div>
             <nav class="flex items-center gap-4">
                 <ModeToggle />
-                <NuxtLink to="/login" v-if="!user">
+                <NuxtLink v-if="!user" to="/login">
                     <Button variant="ghost" size="sm">Log in</Button>
                 </NuxtLink>
-                <NuxtLink to="/signup" v-if="!user">
+                <NuxtLink v-if="!user" to="/signup">
                     <Button size="sm">Get Started</Button>
                 </NuxtLink>
-                <NuxtLink to="/dashboard" v-if="user">
+                <NuxtLink v-if="user" to="/dashboard">
                     <Button size="sm" variant="ghost">Dashboard</Button>
                 </NuxtLink>
                 <Button
                     v-if="user"
                     size="sm"
-                    @click="logout"
                     variant="destructive"
+                    @click="logout"
                 >
                     Logout
                 </Button>

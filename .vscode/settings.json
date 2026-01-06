@@ -1,0 +1,41 @@
+{
+    // 1. Tell VS Code to format files automatically when you save
+    "editor.formatOnSave": true,
+
+    // 2. Set Prettier as the default formatter for everything
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // 3. Specific overrides for different languages
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // 4. Run ESLint fixes when you save (Auto-fix logic errors)
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+    // 5. Ensure ESLint checks Vue and TypeScript files
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "html",
+        "markdown"
+    ],
+
+    // 6. Explicitly tell VS Code to use the new "Flat Config" (eslint.config.mjs)
+    // (Modern versions auto-detect this, but this makes it bulletproof)
+    "eslint.useFlatConfig": true
+}

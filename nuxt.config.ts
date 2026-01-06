@@ -2,6 +2,9 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: "2025-07-15",
+    future: {
+        compatibilityVersion: 4,
+    },
     devtools: { enabled: true },
     css: ["~/assets/css/main.css"],
     vite: {
@@ -13,6 +16,7 @@ export default defineNuxtConfig({
         "@nuxt/fonts",
         "@vueuse/nuxt",
         "@nuxtjs/color-mode",
+        "@nuxt/eslint",
     ],
     colorMode: {
         classSuffix: "",

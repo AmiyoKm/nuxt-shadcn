@@ -37,7 +37,8 @@ export default defineEventHandler(async (event) => {
         }
 
         event.context.user = user;
-    } catch (error) {
+    } catch (error: unknown) {
+        console.error("Failed to verify token:", error);
         event.context.user = null;
     }
 });
