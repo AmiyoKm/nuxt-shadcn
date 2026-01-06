@@ -1,12 +1,12 @@
 <script setup lang="ts">
-definePageMeta({
-    middleware: "auth",
-});
+	definePageMeta({
+		middleware: "auth",
+	});
 </script>
 
 <template>
-    <div>
-        <h1>Dashboard</h1>
-        <p>Protected Content</p>
-    </div>
+	<div>
+		<h1>Dashboard</h1>
+		<p>Protected Content</p>
+	</div>
 </template>
